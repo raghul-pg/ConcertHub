@@ -12,6 +12,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/health", (req, res) => {
+  res.status(200).json({ message: "Backend is live ✅" });
+});
+
 mongoose.connect("mongodb+srv://event_03:Event_03@cluster0.tio6nns.mongodb.net/eventDB?retryWrites=true&w=majority")
 .then(()=>console.log("MongoDB Connected"))
 .catch(err=>console.log(err));
